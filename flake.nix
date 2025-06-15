@@ -17,7 +17,6 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
         [
-	  pkgs.google-chrome
 	  pkgs.neovim
 	  pkgs.tmux
         ];
@@ -26,7 +25,10 @@
       homebrew = {
         enable = true;
 	casks = [
+	  "anki"
 	  "ghostty"
+	  "google-chrome"
+	  "zoom"
 	];
       };
 
