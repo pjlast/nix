@@ -25,9 +25,12 @@
       homebrew = {
         enable = true;
 	casks = [
+	  "adobe-acrobat-reader"
 	  "anki"
 	  "ghostty"
+	  "gimp"
 	  "google-chrome"
+	  "whatsapp"
 	  "zoom"
 	];
       };
