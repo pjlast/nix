@@ -88,6 +88,14 @@
             ];
           };
 
+          system.activationScripts.unquarantineLibreWolf = {
+            text = ''
+              #!/bin/sh
+              # We need to take the LibreWolf app out of quarantine
+              echo "Unquarantining LibreWolf..."
+              xattr -d com.apple.quarantine /Applications/LibreWolf.app'';
+          };
+
           # Allow unfree packages
           nixpkgs.config.allowUnfree = true;
 
@@ -156,7 +164,7 @@
               "anki"
               "ghostty"
               "gimp"
-	      "librewolf"
+              "librewolf"
               "whatsapp"
               "zoom"
             ];
@@ -209,6 +217,12 @@
       devShells.x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.mkShell {
         buildInputs = [
           nixpkgs.legacyPackages.x86_64-linux.nil
+        ];
+      };
+
+      devShells.aarch64-darwin.default = nixpkgs.legacyPackages.aarch64-darwin.mkShell {
+        buildInputs = [
+          nixpkgs.legacyPackages.aarch64-darwin.nil
         ];
       };
     };
