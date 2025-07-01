@@ -88,14 +88,6 @@
             ];
           };
 
-          system.activationScripts.unquarantineLibreWolf = {
-            text = ''
-              #!/bin/sh
-              # We need to take the LibreWolf app out of quarantine
-              echo "Unquarantining LibreWolf..."
-              xattr -d com.apple.quarantine /Applications/LibreWolf.app'';
-          };
-
           # Allow unfree packages
           nixpkgs.config.allowUnfree = true;
 
@@ -164,7 +156,10 @@
               "anki"
               "ghostty"
               "gimp"
-              "librewolf"
+							{
+								name = "librewolf";
+								args = { no_quarantine = true; };
+							}
               "whatsapp"
               "zoom"
             ];
